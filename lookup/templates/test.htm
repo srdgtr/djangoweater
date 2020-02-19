@@ -10,7 +10,25 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>test 224255</h1>
+
+{% if zipcode %}
+    {{ zipcode }}
+{% endif %}
+
+{% if api %}
+    {% if api == "Error" %}
+        There wasan error, please try again ... 
+    {% else %}
+        <div class="jumbotron {{ category_color }}">
+        <h1 class="display-4">{{ api.0.Category.Name }}</h1>
+        <p class="lead">curent {{ api.0.ReportingArea }} Air Quality : {{ api.0.AQI }}</p>
+        
+        <p>{{ category_description }}</p>
+
+        </div>
+    {% endif %}
+{% endif %}
+
 </body>
 </html>
 
